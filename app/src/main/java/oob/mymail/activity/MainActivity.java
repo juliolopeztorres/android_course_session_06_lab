@@ -1,7 +1,10 @@
 package oob.mymail.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.io.Serializable;
 
 import oob.mymail.R;
 import oob.mymail.fragment.ListFragment;
@@ -17,5 +20,8 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
 
     @Override
     public void onMailItemClick(Mail mail) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("mail", mail);
+        startActivity(intent);
     }
 }
