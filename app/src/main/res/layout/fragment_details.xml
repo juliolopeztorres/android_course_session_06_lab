@@ -7,6 +7,8 @@
     tools:context="oob.mymail.fragment.DetailsFragment"
     >
     <LinearLayout
+        android:id="@+id/linearLayoutDetail"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"

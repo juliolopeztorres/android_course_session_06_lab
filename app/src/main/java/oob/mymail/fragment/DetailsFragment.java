@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import oob.mymail.R;
@@ -18,6 +19,7 @@ public class DetailsFragment extends Fragment {
     private TextView textViewSubject;
     private TextView textViewSenderName;
     private TextView textViewMessage;
+    private LinearLayout linearLayoutContainer;
 
     public DetailsFragment() {
     }
@@ -35,11 +37,14 @@ public class DetailsFragment extends Fragment {
         this.textViewSubject = this.view.findViewById(R.id.textViewDetailSubject);
         this.textViewSenderName = this.view.findViewById(R.id.textViewDetailSenderName);
         this.textViewMessage = this.view.findViewById(R.id.textViewDetailMessage);
+        this.linearLayoutContainer = this.view.findViewById(R.id.linearLayoutDetail);
     }
 
     public void updateUI(Mail mail) {
         this.textViewSubject.setText(mail.getSubject());
         this.textViewSenderName.setText(mail.getSenderName());
         this.textViewMessage.setText(mail.getMessage());
+
+        this.linearLayoutContainer.setVisibility(View.VISIBLE);
     }
 }

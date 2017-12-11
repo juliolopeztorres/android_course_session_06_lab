@@ -14,24 +14,25 @@ import oob.mymail.model.Mail;
 public class MainActivity extends AppCompatActivity implements ListFragment.ListFragmentUIEventsInterface {
 
     private boolean xlargeScreen;
+    private DetailsFragment detailsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.detailsFragment = (DetailsFragment) this.getSupportFragmentManager().findFragmentById(R.id.fragment_details);
         this.xlargeScreen = this.isXLargeScreen();
     }
 
     private boolean isXLargeScreen() {
-        return this.getSupportFragmentManager().findFragmentById(R.id.fragment_details) != null;
+        return this.detailsFragment != null;
     }
 
     @Override
     public void onMailItemClick(Mail mail) {
         if (this.xlargeScreen) {
-            DetailsFragment detailsFragment = (DetailsFragment) this.getSupportFragmentManager().findFragmentById(R.id.fragment_details);
-            detailsFragment.updateUI(mail);
+            this.detailsFragment.updateUI(mail);
         } else {
             Intent intent = new Intent(this, DetailsActivity.class);
             intent.putExtra("mail", mail);
