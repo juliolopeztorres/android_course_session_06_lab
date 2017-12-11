@@ -13,7 +13,7 @@
         android:id="@+id/fragmentList"
         android:name="oob.mymail.fragment.ListFragment"
         android:layout_width="0dp"
-        android:layout_weight="60"
+        android:layout_weight="40"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_list"
         />
@@ -22,7 +22,7 @@
         android:id="@+id/fragment_details"
         android:name="oob.mymail.fragment.DetailsFragment"
         android:layout_width="0dp"
-        android:layout_weight="40"
+        android:layout_weight="60"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_details"
         />
