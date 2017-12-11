@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="oob.mymail.activity.MainActivity"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    >
+
+    <fragment
+        android:id="@+id/fragmentList"
+        android:name="oob.mymail.fragment.ListFragment"
+        android:layout_width="0dp"
+        android:layout_weight="60"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_list"
+        />
+
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="oob.mymail.fragment.DetailsFragment"
+        android:layout_width="0dp"
+        android:layout_weight="40"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_details"
+        />
+
+</LinearLayout>
