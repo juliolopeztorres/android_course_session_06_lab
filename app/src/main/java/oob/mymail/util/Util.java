@@ -11,6 +11,7 @@ import oob.mymail.model.Mail;
 public class Util {
 
     private static final String FAKE_MESSAGE = "FAKE_MESSAGE";
+    private static final String[] FAKE_EMAILS = {"julio@test.es", "isa@test.es"};
 
     private static int getRandomColor() {
         Random random = new Random();
@@ -24,12 +25,13 @@ public class Util {
         }
         final String message = fakeMessage;
         return new ArrayList<Mail>(){{
-            add(new Mail("Subject", message, "julio@test.es", Util.getRandomColor()));
-            add(new Mail("Subject 2", message, "isa@test.es", Util.getRandomColor()));
-            add(new Mail("Subject 3", message, "carlos@test.es", Util.getRandomColor()));
-            add(new Mail("Subject 4", message, "ana@test.es", Util.getRandomColor()));
-            add(new Mail("Subject 5", message, "david@test.es", Util.getRandomColor()));
-            add(new Mail("Subject 6", message, "linares@test.es", Util.getRandomColor()));
+            for(int i = 1; i < 25; i++) {
+                add(new Mail(
+                    "Subject " + i,
+                    message,
+                    (i % 2 == 0) ? FAKE_EMAILS[0] : FAKE_EMAILS[1], Util.getRandomColor()
+                ));
+            }
         }};
     }
 }
