@@ -2,6 +2,7 @@ package oob.mymail.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,7 @@ public class ListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.fragment_list, container, false);
 
@@ -39,7 +40,7 @@ public class ListFragment extends Fragment {
     }
 
     private void bindUI() {
-        this.mails = Util.getDummyData();
+        this.mails = Util.getDummyData(this.getString(R.string.fake_mail_message));
         this.listMailsAdapter = new ListMailsAdapter(this.mails, R.layout.item_list, this.getContext());
         this.listViewMails = this.view.findViewById(R.id.listViewMails);
         this.listViewMails.setAdapter(this.listMailsAdapter);
