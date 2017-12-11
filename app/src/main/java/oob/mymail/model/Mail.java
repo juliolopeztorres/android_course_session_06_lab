@@ -1,6 +1,8 @@
 package oob.mymail.model;
 
-public class Mail {
+import java.io.Serializable;
+
+public class Mail implements Serializable {
     private String subject;
 
     private String message;

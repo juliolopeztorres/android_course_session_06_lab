@@ -2,13 +2,16 @@ package oob.mymail.util;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import oob.mymail.model.Mail;
 
 public class Util {
+
+    private static final String FAKE_MESSAGE = "FAKE_MESSAGE";
+    private static final String[] FAKE_EMAILS = {"julio@test.es", "isa@test.es"};
 
     private static int getRandomColor() {
         Random random = new Random();
@@ -16,14 +19,19 @@ public class Util {
     }
 
     @NonNull
-    public static ArrayList<Mail> getDummyData() {
+    public static ArrayList<Mail> getDummyData(@Nullable String fakeMessage) {
+        if (fakeMessage == null) {
+            fakeMessage = Util.FAKE_MESSAGE;
+        }
+        final String message = fakeMessage;
         return new ArrayList<Mail>(){{
-            add(new Mail("Subject", "Message", "Julio", Util.getRandomColor()));
-            add(new Mail("Subject 2", "Message 2", "Isa", Util.getRandomColor()));
-            add(new Mail("Subject 3", "Message 3", "Carlos", Util.getRandomColor()));
-            add(new Mail("Subject 4", "Message 4", "Ana", Util.getRandomColor()));
-            add(new Mail("Subject 5", "Message 5", "David", Util.getRandomColor()));
-            add(new Mail("Subject 6", "Message 6", "Linares", Util.getRandomColor()));
+            for(int i = 1; i < 25; i++) {
+                add(new Mail(
+                    "Subject " + i,
+                    message,
+                    (i % 2 == 0) ? FAKE_EMAILS[0] : FAKE_EMAILS[1], Util.getRandomColor()
+                ));
+            }
         }};
     }
 }
